@@ -1,7 +1,7 @@
-// PublicTest.jsx
 
 import React, { useState } from "react";
 import './publicTest.css';
+import {Button} from 'antd'
 
 const PublicTest = (props) => {
 
@@ -13,6 +13,7 @@ const PublicTest = (props) => {
     <button className="btn"
       onClick={() => {setHcolor(color || 'pink')}}
     >click me</button>
+    <Button type="primary">antd 的按钮</Button>
   </div>
 }
 

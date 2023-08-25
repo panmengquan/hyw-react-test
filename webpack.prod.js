@@ -4,7 +4,7 @@ const CssMinimizaerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.js',
+  entry: './components/index.js',
   output: {
     // 打包到lib目录下
     path: path.resolve(__dirname, 'lib'),
