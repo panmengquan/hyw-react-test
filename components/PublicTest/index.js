@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import './publicTest.css';
+import './index.css';
 import {Button} from 'antd'
 
 const PublicTest = (props) => {
