@@ -1,6 +1,6 @@
 {
   "name": "publish-react-hywtest",
-  "version": "1.2.1",
+  "version": "1.2.8",
   "description": "练习发布react组件到npm",
   "main": "lib/index.js",
   "scripts": {

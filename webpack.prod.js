@@ -5,10 +5,10 @@ const glob = require('glob');
 
 
 const entries = {};
-const fileNames = glob.sync('./components/**/*.js?(x)');
+const fileNames = glob.sync('./src/**/*.js?(x)');
 // console.log('fileNames: ', fileNames);
 fileNames.forEach(file => {
-  const filePath = file.replace(/^\.\/components\/(.+)\.js?$/, '$1');
+  const filePath = file.replace(/^\.\/src\/(.+)\.js?$/, '$1');
   entries[filePath] = file;
 })
 
@@ -31,7 +31,7 @@ module.exports = {
     library: {
       name: 'publish-react-hywtest',
       type: 'umd',
-      export: 'default'
+     
     },
     
   },
@@ -64,6 +64,12 @@ module.exports = {
   },
   // 压缩和优化的相关配置都写在optimization里
   optimization: {
+    //分包
+    splitChunks: {
+      chunks: 'all',
+      name: 'chunk'
+    },
+    //压缩
     minimizer: [
       new CssMinimizaerPlugin()
     ]
