@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import './index.css';
-import {Button} from 'antd'
+// import {Button} from 'antd'
 
 const PublicTest = (props) => {
 
@@ -13,7 +13,7 @@ const PublicTest = (props) => {
     <button className="btn"
       onClick={() => {setHcolor(color || 'pink')}}
     >click me</button>
-    <Button type="primary">antd 的按钮</Button>
+    {/* <Button type="primary">antd 的按钮</Button> */}
   </div>
 }
 
