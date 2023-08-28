@@ -1,14 +1,25 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizaerPlugin = require('css-minimizer-webpack-plugin');
+const glob = require('glob');
+
+
+const entries = {};
+const fileNames = glob.sync('./components/**/*.js?(x)');
+// console.log('fileNames: ', fileNames);
+fileNames.forEach(file => {
+  const filePath = file.replace(/^\.\/components\/(.+)\.js?$/, '$1');
+  entries[filePath] = file;
+})
+
 
 module.exports = {
   mode: 'production',
-  entry: './components/index.js',
+  entry: entries,
   output: {
     // 打包到lib目录下
     path: path.resolve(__dirname, 'lib'),
-    filename: 'index.js',
+    filename: '[name].js',
     // 每次打包时，都自动清除原有的打包文件
     clean: true,
     // 发布到npm库的相关信息
@@ -44,7 +55,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       // 因为我们在文件中引入就是publicTest.css
       // 所以在打包后，也用这个名字，以免引入失败
-      filename: 'publicTest.css'
+      filename: '[name].css'
     })
   ],
   resolve: {
